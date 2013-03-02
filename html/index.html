@@ -1,0 +1,82 @@
+<html class='ui-mobile'>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<title>CoderDojo Android Hangman</title>
+<link rel='stylesheet' href='http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css' />
+<style>
+.content {
+	text-align: center;
+}
+.title {
+	font-family: 'Comic Sans MS', cursive, sans-serif;
+	font-size: 1.5em;
+	margin-bottom: 0px;
+}
+#secret {
+	font-family: monospace, serif;
+	font-size: 4em;
+	font-weight: bold;
+	letter-spacing: 10px;
+}
+.lettres {
+	margin-top: 20px;
+}
+.lettres span {
+	font-family: monospace, serif;
+	font-size: 2em;
+	font-weight: bold;
+	padding-right: 5px;
+	padding-left: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	cursor: pointer;
+	background-color: #CECECE;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	border-radius: 4px;
+}
+.lettres span:ACTIVE {
+	background-color: #59c1e8;
+}
+.lettres span.disabled {
+	background-color: #e7e7e7;
+	color: #b1b1b1;
+}
+.clear {
+	clear: both;
+	margin-bottom: 4px;
+}
+</style>
+<script src='http://code.jquery.com/jquery-1.8.2.min.js'></script>
+<script src='http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js'></script>
+</head>
+<body class='ui-mobile-viewport ui-overlay-c'>
+<div data-role='page'>
+	<div class='ui-header ui-bar-a' data-role='header'>
+		<h1 class='ui-title' tabindex='0' role='heading' aria-level='1'>Hangman</h1>
+	</div>
+	<div class='content' data-role='content'>
+		<img src='Hangman_1.png' alt='Hangman'/>
+		<div id='secret'>B___D</div>
+		<div class='lettres'>
+			<span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span><span>G</span><span>H</span><span>I</span><div class='clear'></div>
+			<span>J</span><span>K</span><span>L</span><span>M</span><span>N</span><span>O</span><span>P</span><span>Q</span><span>R</span><div class='clear'></div>
+			<span>S</span><span>T</span><span>U</span><span>V</span><span>W</span><span>X</span><span>Y</span><span>Z</span>
+		</div>
+	</div>
+	<div class='ui-footer ui-bar-a' data-role="footer" data-position="fixed">
+		<h4>CoderDojo Cork Avego</h4>
+	</div>
+</div>
+<script>
+$(function() {
+	$('.lettres span').click(function(event) {
+		var lettre = event.target.innerText;
+		$(event.target).addClass('disabled');
+		$(event.target).unbind('click');
+	});
+});
+</script>
+</body>
+</html>
